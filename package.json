@@ -1,0 +1,35 @@
+{
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "rollup -c rollup.config.ts",
+    "serve": "vite preview"
+  },
+  "module": "dist/my-library-name.esm.ts",
+  "files": [
+    "dist/"
+  ],
+  "dependencies": {
+    "@rollup/plugin-commonjs": "^19.0.0",
+    "@tailwindcss/postcss7-compat": "^2.1.4",
+    "autoprefixer": "^9",
+    "axios": "^0.21.1",
+    "postcss": "^7",
+    "pug": "^3.0.2",
+    "tailwind": "^4.0.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
+    "vue": "^3.0.5",
+    "vue-cli-plugin-pug": "~2.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.2.3",
+    "@vue/compiler-sfc": "^3.0.5",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-pug": "^1.1.1",
+    "sass": "^1.34.1",
+    "typescript": "^4.3.2",
+    "vite": "^2.3.5",
+    "vite-plugin-pug": "^0.3.0",
+    "vue-tsc": "^0.0.24"
+  }
+}
