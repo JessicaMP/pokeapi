@@ -1,5 +1,5 @@
 <template lang="pug">
-.flex.justify-center.flex-col.justify-items-center.h-full
+.flex.justify-center.flex-col.justify-items-center.h-full.mx-5
     figure.flex.justify-center.mt-5
         img(src="../assets/images/pikachu.png" class="md:max-w-lg")
     div.text-center.color_black
@@ -8,10 +8,10 @@
             .max-w-xl
                 p.text-lg.color_grey {{text}}
     .my-24.flex.justify-center
-        button.rounded-full.bg_red.p-4.text-white.block.text-lg.px-5.font-bold(type="button") Get started
+        button.rounded-full.bg_red.p-4.text-white.block.text-lg.px-5.font-bold(type="button" @click="$router.push('/list')") Get started
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, onMounted } from 'vue'
 
 export default defineComponent({
     name: 'Welcome',
