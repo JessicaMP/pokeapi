@@ -1,0 +1,21 @@
+/* Colors
+ -------------------------- */
+$--color-black: #353535
+$--color-grey: #5E5E5E
+$--color-ligth-grey: #BFBFBF
+$--color-dark-red: #C00E20
+$--color-ligth-grey: #E8E8E8
+$--color-light-grey2: #D2D2D2
+$--color-light-grey3: #F9F9F9
+$--color-light-orange: #ECA539
+$--color-red: #F22539
+$--color-dark-white:#F5F5F5
+$--color-white: #F9F9F9
+
+$colors: ( "black": $--color-black, "grey": $--color-grey, "ligth-grey": $--color-ligth-grey, "dark-red": $--color-dark-red, "light-grey2": $--color-light-grey2, "light-grey3": $--color-light-grey3, "light-orange": $--color-light-orange, "red": $--color-red, "dark-white": $--color-dark-white, "white": $--color-white)
+
+@each $name, $colorName in $colors
+    .color_#{$name}
+        color: $colorName
+    .bg_#{$name}
+        background-color: $colorName
