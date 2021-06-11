@@ -8,6 +8,8 @@ export enum ActionTypes {
   UpdateItems = 'UPDATE_ITEMS',
   SearchItems = 'SEARCH_ITEMS',
   GetStatusItem = 'GET_FAVORITES_ALL_ITEMS',
+  GetOneItem = 'GET_ONE_ITEM',
+  UpdateItem = 'UPDATE_ITEM',
 }
 
 type ActionAugments = Omit<ActionContext<State, State>, 'commit'> & {
@@ -21,6 +23,8 @@ export type Actions = {
     [ActionTypes.UpdateItems](context: ActionAugments, data: []): void
     [ActionTypes.SearchItems](context: ActionAugments,word: string): void
     [ActionTypes.GetStatusItem](context: ActionAugments,status: boolean): void
+    [ActionTypes.GetOneItem](context: ActionAugments, name: string): void
+    [ActionTypes.UpdateItem](context: ActionAugments, data: []): void
 }
 export const actions: ActionTree<State, State> & Actions = {
   async [ActionTypes.GetItems]({ commit }) {
@@ -49,5 +53,14 @@ export const actions: ActionTree<State, State> & Actions = {
     let data = state.list
     let filterItems = data.filter((e) => e.status == status)
     commit(MutationTypes.SET_DATA, filterItems)
-  }
+  },
+  async [ActionTypes.GetOneItem]({ commit }, name) {
+    let {data} = await axios.get(`${api}/pokemon/${name}/`)
+    let content = data
+    content.status = false
+    commit(MutationTypes.SET_DATA_ITEM, content)
+  },
+  async [ActionTypes.UpdateItem]({ commit }, data) {
+    commit(MutationTypes.SET_DATA_ITEM, data)
+  },
 }
