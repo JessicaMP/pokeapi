@@ -5,10 +5,14 @@ module.exports = {
             '^/api': {
                 target: process.env.URL_API,
                 changeOrigin: true,
+                ws: true,
                 pathRewrite: {
                     '/api': ''
                 }
             }
-        }
+        },
+        css: {
+            extract: false,
+        },
     }
 }
