@@ -1,3 +1,53 @@
 <template lang="pug">
-    
+.wrapper
+    .pokeball
 </template>
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+    name: "Loader"
+})
+</script>
+<style lang="sass">
+.wrapper
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+.pokeball
+    width: 60px
+    height: 60px
+    background-color: #fff
+    border-radius: 50% 
+    position: relative
+    overflow: hidden
+    border: 3px solid
+    animation: frames .8s  linear 0s infinite
+.pokeball:after
+    content: ''
+    position: absolute
+    width: 60px
+    height: 30px
+    background-color: red
+    border-bottom: 4px solid
+    top: -4px
+.pokeball:before
+    content: ''
+    position: absolute
+    background-color: #fff
+    width: 15px
+    height:15px
+    border: 4px solid
+    border-radius: 50%
+    bottom: 18px
+    right: 18px
+    z-index: 1
+
+/* AnimationFrames */
+@keyframes frames
+    0%
+        transform: rotate(0deg)
+    100%
+        transform: rotate(360deg)
+</style>

@@ -1,7 +1,6 @@
 <template lang="pug">
-.overflow-x-hidden.overflow-y-auto.fixed.inset-0.z-50.outline-none.justify-center.items-center.flex(x-data="{ 'isDialogOpen': false }"
-      @keydown="escapeContent" )
-    .fixed.z-50.relative.my-6.mx-auto(class="w-3/5" x-show="isDialogOpen" :class="{ 'absolute inset-0 z-10 flex items-start justify-center focus:outline-none': isDialogOpen }")
+.overflow-x-hidden.overflow-y-auto.fixed.inset-0.z-50.outline-none.justify-center.items-center.flex(x-data="{ 'isDialogOpen': false }" @keydown="escapeContent" )
+    .fixed.z-50.relative.my-6.mx-auto(class="w-4/5 md:w-3/5" x-show="isDialogOpen" :class="{ 'absolute inset-0 z-10 flex items-start justify-center focus:outline-none': isDialogOpen }")
         .border-0.rounded-lg.shadow-lg.relative.flex.flex-col.w-full.bg-white.outline-none.color_grey.text-lg.rounded(class="focus:outline-none" x-show="isDialogOpen" @click.away="isDialogOpen = false")
             button.rounded-full.absolute.right-3.top-3.text-white(@click="$emit('closeModal', false)")
                 XCircleIcon.h-7.w-7
