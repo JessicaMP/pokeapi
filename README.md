@@ -18,12 +18,14 @@ Para este proyecto se consumio la api:
 https://pokeapi.co/
 ```
 
-## USO
+## MODO DE USO
 
+Instalar dependencias
 ```bash
 yarn install
 ```
 
+Ejecutar el proyecto
 ```bash
 yarn dev
 ```
