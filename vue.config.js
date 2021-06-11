@@ -11,8 +11,37 @@ module.exports = {
                 }
             }
         },
-        css: {
-            extract: false,
-        },
-    }
+    },
+    css: {
+        extract: false,
+    },
+    module: {
+        rules: [
+          {
+            test: /\.scss$/,
+            use: [
+              'vue-style-loader',
+              'css-loader',
+              'sass-loader'
+            ]
+          },
+          {
+            test: /\.ts$/,
+            loader: 'ts-loader',
+            options: { appendTsSuffixTo: [/\.vue$/] }
+          },
+          {
+            test: /\.pug$/,
+            oneOf: [
+              {
+                resourceQuery: /^\?vue/,
+                use: ['pug-plain-loader']
+              },
+              {
+                use: ['raw-loader', 'pug-plain-loader']
+              }
+            ]
+          }
+        ]
+      },
 }
