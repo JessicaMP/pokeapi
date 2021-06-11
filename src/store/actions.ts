@@ -58,8 +58,7 @@ export const actions: ActionTree<State, State> & Actions = {
     commit(MutationTypes.SET_DATA, filterItems)
   },
   async [ActionTypes.GetStatusItem]({ state, commit }, status) {
-    let data = state.list
-    let filterItems = data.filter((e) => e.status == status)
+    const filterItems = statusItems(state.list, status)
     commit(MutationTypes.SET_DATA, filterItems)
   },
   async [ActionTypes.GetOneItem]({ commit }, name) {
@@ -71,4 +70,10 @@ export const actions: ActionTree<State, State> & Actions = {
   async [ActionTypes.UpdateItem]({ commit }, data) {
     commit(MutationTypes.SET_DATA_ITEM, data)
   },
+}
+
+const statusItems = (list: [], status: Boolean) => {
+  let data = list || []
+  let filterItems = data.filter((e) => e.status || null == status)
+  return filterItems
 }
