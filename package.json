@@ -2,7 +2,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "rollup -c rollup.config.ts",
+    "build": "vite build",
     "serve": "vite preview"
   },
   "module": "dist/my-library-name.esm.ts",

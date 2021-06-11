@@ -1,6 +1,5 @@
 import { MutationTree } from 'vuex';
 import { State } from './state';
-// import { DocumentsMutationTypes } from './mutation-types';
 
 export enum MutationTypes {
   SET_DATA = 'SET_DATA',
