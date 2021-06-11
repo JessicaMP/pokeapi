@@ -3,6 +3,13 @@ import { Mutations, MutationTypes } from './mutations'
 import { State } from './state'
 import axios from 'axios'
 const api = "https://pokeapi.co/api/v2"
+const headerCors = {
+  headers: {
+         "Access-Control-Allow-Origin": "*",
+         "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+         "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"
+       }
+     }
 export enum ActionTypes {
   GetItems = 'GET_ITEMS',
   UpdateItems = 'UPDATE_ITEMS',
@@ -28,7 +35,7 @@ export type Actions = {
 }
 export const actions: ActionTree<State, State> & Actions = {
   async [ActionTypes.GetItems]({ commit }) {
-    let {data: {results}} = await axios.get(`${api}/pokemon/`)
+    let {data: {results}} = await axios.get(`${api}/pokemon/`, headerCors)
     let content = results.map((e) => {
       e.status = false
       return e
@@ -55,7 +62,7 @@ export const actions: ActionTree<State, State> & Actions = {
     commit(MutationTypes.SET_DATA, filterItems)
   },
   async [ActionTypes.GetOneItem]({ commit }, name) {
-    let {data} = await axios.get(`${api}/pokemon/${name}/`)
+    let {data} = await axios.get(`${api}/pokemon/${name}/`, headerCors)
     let content = data
     content.status = false
     commit(MutationTypes.SET_DATA_ITEM, content)
